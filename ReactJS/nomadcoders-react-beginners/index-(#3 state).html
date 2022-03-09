@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- React files :: react & react-dom -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<!-- <script type="text/babel">
+    const root = document.getElementById("root")
+
+    const App = () => {
+        const [counter, setCounter] = React.useState(0)
+        const onClick = () => {
+            setCounter(counter+1)
+        }
+        return <div>
+            <h3>Total clicks: {counter}</h3>
+            <button onClick={onClick}>
+                Click Me
+            </button>
+        </div>
+    }
+
+    ReactDOM.render(<App />, root)
+</script> -->
+<script type="text/babel">
+    const root = document.getElementById("root")
+
+	const Container = () => {
+        const [counter, setCounter] = React.useState(0)
+
+        function countUp() {
+            setCounter(counter+1)
+        }
+		
+        return <div>
+			<h3>Total clicks: {counter}</h3>
+			<button onClick={countUp}>BTN</button>
+		</div>
+    }
+	
+	ReactDOM.render(<Container />, root)
+</script>
+
+</html>
