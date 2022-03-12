@@ -1,22 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Title</title>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- React files :: react & react-dom -->
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
+    ></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="root"></div>
-</body>
-<!-- <script type="text/babel">
+  </body>
+  <!-- <script type="text/babel">
     const root = document.getElementById("root")
 
     const App = () => {
@@ -34,23 +42,25 @@
 
     ReactDOM.render(<App />, root)
 </script> -->
-<script type="text/babel">
-    const root = document.getElementById("root")
+  <script type="text/babel">
+    const root = document.getElementById("root");
 
-	const Container = () => {
-        const [counter, setCounter] = React.useState(0)
+    const Container = () => {
+      const [counter, setCounter] = React.useState(0);
 
-        function countUp() {
-            setCounter(counter+1)
-        }
-		
-        return <div>
-			<h3>Total clicks: {counter}</h3>
-			<button onClick={countUp}>BTN</button>
-		</div>
-    }
-	
-	ReactDOM.render(<Container />, root)
-</script>
+      function countUp() {
+        // setCounter(counter+1)
+        setCounter((current) => current + 1);
+      }
 
+      return (
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={countUp}>BTN</button>
+        </div>
+      );
+    };
+
+    ReactDOM.render(<Container />, root);
+  </script>
 </html>
