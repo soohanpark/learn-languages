@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>게시판 리스트</title>
+</head>
+<body>
+    <h1>게시판 리스트</h1>
+    <a href="/writeform">게시판 글쓰기</a><br>
+    <table border="1" style="width: 50em;">
+        <tr>
+            <th>글번호</th>
+            <th>제목</th>
+            <th>글쓴이</th>
+            <th>날짜</th>
+            <th>조회수</th>
+        </tr>
+        {% for r in datas.rows %}
+        <tr>
+            <td>{{r.num}}</td>
+            <td><a href="/read/{{r.num}}/{{datas.page}}">{{r.title}}</a></td>
+            <td>{{r.name}}</td>
+            <td>{{r.regdate}}</td>
+            <td>{{r.hit}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div style="width: 50em; text-align: center; padding-top: 5px;"> <!--가운데 정렬-->
+        {# 서버 사이드 주석 #}
+        {% if datas.page > datas.link_size %}
+        [ <a href="/list/1" style="text-decoration: none; color: teal;">◀◀</a> ]
+        [ <a href="/list/{{datas.start_link-1}}" style="text-decoration: none; color: plum;">◀</a> ]
+        {% else %}
+        [ <span style="color: teal;">◀◀</span> ]
+        [ <span style="color: plum;">◀</span> ]
+        {% endif %}
+        &nbsp;&nbsp;
+        {% for i in range(datas.start_link, datas.end_link + 1) %}
+            {% if i == datas.page %}
+            [ <span style="font-style:oblique;">{{i}}</span> ]
+            {% else %}
+            [ <a href="/list/{{i}}" style="text-decoration: none; color: black;">{{i}}</a> ]
+            {% endif %} 
+        {% endfor %}
+        &nbsp;&nbsp;
+        {% if (datas.end_link < datas.total_page) %}
+        [<a href="/list/{{datas.end_link + 1}}" style="text-decoration: none;">▶</a>]
+        [<a href="/list/{{datas.total_page}}" style="text-decoration: none;">▶▶</a>]
+        {% else %}
+        [ <span style="color: gray;">▶</span> ]
+        [ <span style='color: gray;'>▶▶</span> ]
+        {% endif %}
+    </div>
+</body>
+</html>

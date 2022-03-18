@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LOGIN</title>
+    <script>
+        function check() {
+            if (form1.id.value == '') {
+                alert("PLEASE INPUT YOUR ID !");
+                form1.id.focus();
+                return ;
+            }
+            if (form1.pwd.value == '') {
+                alert("PLEASE INPUT YOUR PASSWORD !");
+                form1.pwd.focus();
+                return ;
+            }
+            form1.submit();
+        }
+    </script>
+</head>
+<body>
+    <h1>L O G I N</h1>
+    <form action="/login" method="POST" name="form1">
+        <table border="1" style="width: 30em;">
+            <tr>
+                <th>I D</th>
+                <td><input type="text" name="id"></td>
+            </tr>
+            <tr>
+                <th>P A S S W O R D</th>
+                <td><input type="password" name="pwd"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="LOGIN" onclick="check()">
+                    <input type="reset" value="CANCEL" onclick="history.back()"> 
+                </td> 
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

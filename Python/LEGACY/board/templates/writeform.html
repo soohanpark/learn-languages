@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>방명록 남기기</title>
+    <script>
+    function check(){
+        if (form1.name.value =='') {
+            alert("이름을 꼭 입력해주세요!");
+            form1.name.focus();
+            return ;
+        }
+        if (form1.title.value =='') {
+            alert("제목을 꼭 입력해주세요!");
+            form1.title.focus();
+            return ;
+        }
+        if (form1.content.value =='') {
+            alert("내용을 꼭 입력해주세요!");
+            form1.content.focus();
+            return ;
+        }
+        if (form1.pwd.value =='') {
+            alert("비밀번호를 꼭 입력해주세요!");
+            form1.pwd.focus();
+            return ;
+        }
+        form1.submit();
+    } // function check() end.
+    </script>
+</head>
+<body>
+    <h1>방명록 남기기</h1>
+    <form action="/write" method="POST" name="form1">
+    <table border="1" style="width: 30em;">
+        <tr>
+            <th>이름</th>
+            <td><input type="text" name='name'></td>
+        </tr>
+        <tr>
+            <th>제목</th>
+            <td><input type="text" name='title'></td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td><textarea name="content" cols="30" rows="10"></textarea></td>
+        </tr>
+        <tr>
+            <th>비밀번호</th>
+            <td><input type="password" name="pwd"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value='쓰기' onclick="check()">
+                <input type="reset" value='취소'>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

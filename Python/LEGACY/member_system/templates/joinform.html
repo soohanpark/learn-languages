@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>회원 가입</title>
+    <script>
+        function check() {
+            if (form1.id.value == "") {
+                alert('MUST PUT ID!');
+                form1.id.focus();
+                return;
+            }
+            if (form1.pwd.value == "") {
+                alert('MUST PUT PASSWORD!');
+                form1.pwd.focus();
+                return ;
+            }
+            if (form1.name.value == "") {
+                alert('MUST PUT NAME!');
+                form1.name.focus();
+                return ;
+            }
+            if (form1.email.value == "") {
+                alert('MUST PUT E-MAIL!');
+                form1.email.focus();
+                return ;
+            }
+            if (form1.tel2.value == "") {
+                alert('MUST PUT MIDDLE OF TEL!');
+                form1.tel2.focus();
+                return ;
+            }
+            if(form1.tel3.value == "") {
+                alert('MUST PUT LAST OF TEL!');
+                form1.tel3.focus();
+                return ;
+            }
+            
+            form1.tel.value = form1.tel1.value + '-' + form1.tel2.value + '-' + form1.tel3.value;
+            //alert(form1.tel.value)
+            form1.submit();
+        }
+    </script>
+</head>
+<body>
+    <h1>R E G I S T E R</h1>
+    <form action="/join" method="POST" name="form1">
+    <table border="1" style="width: 30em;">
+        <tr>
+            <th>I D</th>
+            <td><input type="text" name="id"></td>
+        </tr>
+        <tr>
+            <th>P A S S W O R D</th>
+            <td><input type="password" name="pwd"></td>
+        </tr>
+        <tr>
+            <th>N A M E</th>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <th>G E N D E R</th>
+            <td>
+                <input type="radio" name="gender" value="M" checked="checked">M A L E
+                <input type="radio" name="gender" value="F">F E M A L E
+            </td>
+        </tr>
+        <tr>
+            <th>E - M A I L</th>
+            <td><input type="text" name="email"></td>
+        </tr>
+        <tr>
+            <th>P H O N E</th>
+            <td>
+                <input type="hidden" name="tel"> <!--아래 전화번호를 합쳐서 보냄-->
+                <select name="tel1"> <!--아래 목록이 보이는거 선택 가능-->
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                    <option value="012">012</option>
+                    <option value="016">016</option>
+                    <option value="017">017</option>
+                    <option value="019">019</option>
+                </select>
+                -
+                <input type="text" name="tel2" size="4" maxlength="4"> <!--글자수 제어-->
+                -
+                <input type="text" name="tel3" size="4" maxlength="4">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="R E G I S T E R" onclick="check()">
+                <input type="reset" value="C A N C E L">
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

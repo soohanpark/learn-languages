@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>댓글 달기</title>
+    <script>
+        function check() {
+            if (form1.name.value == '') {
+                alert('이름을 꼭 입력 하세요!!')
+                return; // 밑으로 내려가지 말고 조건을 되돌려라?
+            }
+            else if (form1.content.value =='') {
+                alert('내용을 꼭 입력하셈!!!')
+                return;
+            }
+        form1.submit();
+        }
+    </script>
+</head>
+<body>
+    <h1>댓글 달기</h1>
+    <a href="/list">리스트로 돌아가기</a>
+    <form action="/comment" method="POST" name="form1">
+        <table border="1" style="width: 30em;">
+            <tr>
+                <th>이름</th>
+                <td>
+                    <input type="hidden" name="num" value="{{num}}">
+                    <input type="hidden" name="page" value="{{page}}">
+                    <input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><textarea name="content" cols="30" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="쓰기" onclick="check()">
+                    <input type="reset" value="취소">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

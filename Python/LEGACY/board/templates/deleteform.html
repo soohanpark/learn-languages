@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>게시글 삭제</title>
+    <script>
+        function check() {
+            if (form1.pwd.value == "") {
+                alert('비밀번호를 입력하셈!');
+                form1.pwd.focus();
+                return;
+            }
+            form1.submit(); // form1의 action 에 해당하는 부분으로 보낸다!!!
+        }
+    </script>
+</head>
+<body>
+    <h1>게시글 삭제</h1>
+    <a href="/list">리스트로 돌아가기</a><br>
+    <form action="/delete" method="POST" name='form1'>
+        <input type="hidden" name="num" value="{{num}}">
+        <input type="hidden" name="page" value="{{page}}">
+        비밀번호 : <input type="password" name="pwd"><br>
+        <input type="button" value="삭제" onclick="check()">
+        <input type="reset" value="취소">
+    </form>
+</body>
+</html>
